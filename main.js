@@ -43,6 +43,14 @@ const pAequorFactory = (specimenNum, dna) => {
       }
       const matchPercentage = Math.round((match / pAeqour.dna.length) * 100, 0);
       console.log(`Specimen #${specimenNum} and specimen #${pAeqour.specimenNum} have ${matchPercentage}% DNA in common.`)
+    },
+
+    willLikelySurvive: () => {
+      const dnaLength = dna.length;
+      const cCount = [...dna].filter(element => element === 'C').length;
+      const gCount = [...dna].filter(element => element === 'G').length;
+      const totalCount = cCount + gCount;
+      return totalCount / dnaLength >= 0.6;
     }
   };
 };
