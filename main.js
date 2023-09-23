@@ -51,7 +51,9 @@ const pAequorFactory = (specimenNum, dna) => {
       const gCount = [...dna].filter(element => element === 'G').length;
       const totalCount = cCount + gCount;
       return totalCount / dnaLength >= 0.6;
-    }
+    },
+
+    // TODO: create complementStrand method
   };
 };
 
@@ -69,3 +71,5 @@ for (const pAeqour of pAeqours) {
   console.log(`Specimen #${pAeqour.specimenNum} has DNA sequence ${pAeqour.dna.join('')} 
     and is ${pAeqour.willLikelySurvive() ? 'likely' : 'unlikely'} to survive.`);
 }
+
+// TODO: find most related pAeqours
