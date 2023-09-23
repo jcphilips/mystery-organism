@@ -54,3 +54,18 @@ const pAequorFactory = (specimenNum, dna) => {
     }
   };
 };
+
+const pAeqours = [];
+let count = 1;
+while (pAeqours.length < 30) {
+  const pAeqour = pAequorFactory(count, mockUpStrand());
+  if (pAeqour.willLikelySurvive()) {
+    pAeqours.push(pAeqour);
+    count++;
+  }
+}
+
+for (const pAeqour of pAeqours) {
+  console.log(`Specimen #${pAeqour.specimenNum} has DNA sequence ${pAeqour.dna.join('')} 
+    and is ${pAeqour.willLikelySurvive() ? 'likely' : 'unlikely'} to survive.`);
+}
