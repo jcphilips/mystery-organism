@@ -32,6 +32,17 @@ const pAequorFactory = (specimenNum, dna) => {
       let newBase = selectedBase;
       while (newBase === selectedBase) newBase = returnRandBase();
       dna[selectedIndex] = newBase;
+    },
+
+    compareDNA: pAeqour => {
+      let match = 0;
+      for (let i = 0; i < pAeqour.dna.length; i++) {
+        if (pAeqour.dna[i] === dna[i]) {
+          match++
+        }
+      }
+      const matchPercentage = Math.round((match / pAeqour.dna.length) * 100, 0);
+      console.log(`Specimen #${specimenNum} and specimen #${pAeqour.specimenNum} have ${matchPercentage}% DNA in common.`)
     }
   };
 };
